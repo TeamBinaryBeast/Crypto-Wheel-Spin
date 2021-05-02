@@ -10,16 +10,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Dooplo - Gaming HTML Template</title>
     <!-- favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'assets/images/favicon.png' %}" type="image/x-icon">
     <!-- bootstrap -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
     <!-- Plugin css -->
-    <link rel="stylesheet" href="assets/css/plugin.css">
+    <link rel="stylesheet" href="{% static 'assets/css/plugin.css' %}">
 
     <!-- stylesheet -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
     <!-- responsive -->
-    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}">
 </head>
 
 <body>
@@ -184,7 +184,7 @@
                     <div class="col-lg-12">
                         <nav class="navbar navbar-expand-lg navbar-light">
                             <a class="navbar-brand" href="index.html">
-								<img src="assets/images/logo.png" alt="">
+								<img src="{% static 'assets/images/logo.png' %}" alt="">
 							</a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_menu" aria-controls="main_menu" aria-expanded="false" aria-label="Toggle navigation">
 								<span class="navbar-toggler-icon"></span>
@@ -249,7 +249,7 @@
 
     <!-- Breadcrumb Area Start -->
     <section class="breadcrumb-area about">
-        <img class="bc-img" src="assets/images/breadcrumb/about.png" alt="">
+        <img class="bc-img" src="{% static 'assets/images/breadcrumb/about.png' %}" alt="">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -282,9 +282,9 @@
             <div class="row">
                 <div class="col-lg-6 d-flex align-self-center">
                     <div class="about-video">
-                        <img src="assets/images/about-video-bg.jpg" alt="">
+                        <img src="{% static 'assets/images/about-video-bg.jpg' %}" alt="">
                         <a href="https://www.youtube.com/watch?v=oj40TQirhss" class="play-video mfp-iframe">
-								<img src="assets/images/play-icon-red.png" alt="">
+								<img src="{% static 'assets/images/play-icon-red.png' %}" alt="">
 							</a>
                     </div>
                 </div>
@@ -332,7 +332,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="single-vision">
                         <div class="icon one">
-                            <img src="assets/images/vision/icon1.png" alt="">
+                            <img src="{% static 'assets/images/vision/icon1.png' %}" alt="">
                         </div>
                         <div class="content">
                             <h4 class="title">
@@ -347,7 +347,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="single-vision">
                         <div class="icon two">
-                            <img src="assets/images/vision/icon2.png" alt="">
+                            <img src="{% static 'assets/images/vision/icon2.png' %}" alt="">
                         </div>
                         <div class="content">
                             <h4 class="title">
@@ -362,7 +362,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="single-vision">
                         <div class="icon three">
-                            <img src="assets/images/vision/icon3.png" alt="">
+                            <img src="{% static 'assets/images/vision/icon3.png' %}" alt="">
                         </div>
                         <div class="content">
                             <h4 class="title">
@@ -406,7 +406,7 @@
                                 <div class="col-lg-6 col-md-6">
                                     <div class="single-feature landscape">
                                         <div class="icon one">
-                                            <img src="assets/images/feature/icon1.png" alt="">
+                                            <img src="{% static 'assets/images/feature/icon1.png' %}" alt="">
                                         </div>
                                         <div class="content">
                                             <h4 class="title">
@@ -419,7 +419,7 @@
                                 <div class="col-lg-6 col-md-6">
                                     <div class="single-feature landscape">
                                         <div class="icon three">
-                                            <img src="assets/images/feature/payout.png" alt="">
+                                            <img src="{% static 'assets/images/feature/payout.png' %}" alt="">
                                         </div>
                                         <div class="content">
                                             <h4 class="title">
@@ -432,7 +432,7 @@
                                 <div class="col-lg-6 col-md-6">
                                     <div class="single-feature landscape">
                                         <div class="icon two">
-                                            <img src="assets/images/feature/icon2.png" alt="">
+                                            <img src="{% static 'assets/images/feature/icon2.png' %}" alt="">
                                         </div>
                                         <div class="content">
                                             <h4 class="title">
@@ -445,7 +445,7 @@
                                 <div class="col-lg-6 col-md-6">
                                     <div class="single-feature landscape">
                                         <div class="icon two">
-                                            <img src="assets/images/feature/security.png" alt="">
+                                            <img src="{% static 'assets/images/feature/security.png' %}" alt="">
                                         </div>
                                         <div class="content">
                                             <h4 class="title">
@@ -458,7 +458,7 @@
                                 <div class="col-lg-6 col-md-6">
                                     <div class="single-feature landscape">
                                         <div class="icon three">
-                                            <img src="assets/images/feature/reward.png" alt="">
+                                            <img src="{% static 'assets/images/feature/reward.png' %}" alt="">
                                         </div>
                                         <div class="content">
                                             <h4 class="title">
@@ -471,7 +471,7 @@
                                 <div class="col-lg-6 col-md-6">
                                     <div class="single-feature landscape">
                                         <div class="icon four">
-                                            <img src="assets/images/feature/icon3.png" alt="">
+                                            <img src="{% static 'assets/images/feature/icon3.png' %}" alt="">
                                         </div>
                                         <div class="content">
                                             <h4 class="title">
@@ -520,7 +520,7 @@
                                 <div class="col-lg-3 col-md-6">
                                     <div class="single-team">
                                         <div class="image">
-                                            <img src="assets/images/team/team1.png" alt="">
+                                            <img src="{% static 'assets/images/team/team1.png' %}" alt="">
                                             <div class="overlay"></div>
                                             <div class="content">
                                                 <h4 class="name">
@@ -560,7 +560,7 @@
                                 <div class="col-lg-3 col-md-6">
                                     <div class="single-team">
                                         <div class="image">
-                                            <img src="assets/images/team/team2.png" alt="">
+                                            <img src="{% static 'assets/images/team/team2.png' %}" alt="">
                                             <div class="overlay"></div>
                                             <div class="content">
                                                 <h4 class="name">
@@ -600,7 +600,7 @@
                                 <div class="col-lg-3 col-md-6">
                                     <div class="single-team">
                                         <div class="image">
-                                            <img src="assets/images/team/team3.png" alt="">
+                                            <img src="{% static 'assets/images/team/team3.png' %}" alt="">
                                             <div class="overlay"></div>
                                             <div class="content">
                                                 <h4 class="name">
@@ -640,7 +640,7 @@
                                 <div class="col-lg-3 col-md-6">
                                     <div class="single-team">
                                         <div class="image">
-                                            <img src="assets/images/team/team4.png" alt="">
+                                            <img src="{% static 'assets/images/team/team4.png' %}" alt="">
                                             <div class="overlay"></div>
                                             <div class="content">
                                                 <h4 class="name">
@@ -698,7 +698,7 @@
                 <div class="col-lg-6">
                     <div class="single-box">
                         <div class="img">
-                            <img src="assets/images/team/community-icon.png" alt="">
+                            <img src="{% static 'assets/images/team/community-icon.png' %}" alt="">
                         </div>
                         <div class="content">
                             <h4 class="title">
@@ -713,7 +713,7 @@
                 <div class="col-lg-6">
                     <div class="single-box">
                         <div class="img">
-                            <img src="assets/images/team/blog-icon.png" alt="">
+                            <img src="{% static 'assets/images/team/blog-icon.png' %}" alt="">
                         </div>
                         <div class="content">
                             <h4 class="title">
@@ -751,7 +751,7 @@
                                     </div>
                                     <div class="col-lg-3 col-4 d-flex align-self-center">
                                         <div class="icon">
-                                            <img src="assets/images/mail-box.png" alt="">
+                                            <img src="{% static 'assets/images/mail-box.png' %}" alt="">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-8 d-flex align-self-center">
@@ -984,7 +984,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <div class="modal-body">
                     <div class="logo-area">
-                        <img class="logo" src="assets/images/logo.png" alt="">
+                        <img class="logo" src="{% static 'assets/images/logo.png' %}" alt="">
                     </div>
                     <div class="header-area">
                         <h4 class="title">Great to have you back!</h4>
@@ -1036,7 +1036,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <div class="modal-body">
                     <div class="logo-area">
-                        <img class="logo" src="assets/images/logo.png" alt="">
+                        <img class="logo" src="{% static 'assets/images/logo.png' %}" alt="">
                     </div>
                     <div class="header-area">
                         <h4 class="title">Great to have you back!</h4>
@@ -1087,19 +1087,19 @@
     <!-- SignIn Area End -->
 
     <!-- jquery -->
-    <script src="assets/js/jquery.js"></script>
+    <script src="{% static 'assets/js/jquery.js' %}"></script>
     <!-- popper -->
-    <script src="assets/js/popper.min.js"></script>
+    <script src="{% static 'assets/js/popper.min.js' %}"></script>
     <!-- bootstrap -->
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
     <!-- plugin js-->
-    <script src="assets/js/plugin.js"></script>
+    <script src="{% static 'assets/js/plugin.js' %}"></script>
 
     <!-- MpusemoverParallax JS-->
-    <script src="assets/js/TweenMax.js"></script>
-    <script src="assets/js/mousemoveparallax.js"></script>
+    <script src="{% static 'assets/js/TweenMax.js' %}"></script>
+    <script src="{% static 'assets/js/mousemoveparallax.js' %}"></script>
     <!-- main -->
-    <script src="assets/js/main.js"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
 </body>
 
 </html>
