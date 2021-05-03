@@ -15,11 +15,26 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from wheelspin.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', index, name='index'),
+    path('404/', err404, name='err404'),
+    path('about/', about, name='about'),
+    path('affiliate/', affiliate, name='affiliate'),
+    path('awards/', awards, name='awards'),
+    path('bonus/', bonus, name='bonus'),
+    path('cart/', cart, name='cart'),
+    path('contact', contact, name='contact'),
+    path('faq/', faq, name='faq'),
+    path('how-it-work/', howItWork, name='how-it-work'),
+    path('lottery/', lottery, name='lottery'),
+    path('play/', play, name='play'),
+    path('terms-conditions-details/', termsConditionsDetails, name='terms-conditions-details'),
+    path('terms-conditions/', termsConditions, name='terms-conditions'),
+    path('tournaments/', tournaments, name='tournaments'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

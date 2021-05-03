@@ -10,16 +10,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Dooplo - Gaming HTML Template</title>
     <!-- favicon -->
-    <link rel="shortcut icon" href="{% static 'assets/images/favicon.png' %}" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'wheelspin/assets/images/favicon.png' %}" type="image/x-icon">
     <!-- bootstrap -->
-    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'wheelspin/assets/css/bootstrap.min.css' %}">
     <!-- Plugin css -->
-    <link rel="stylesheet" href="{% static 'assets/css/plugin.css' %}">
+    <link rel="stylesheet" href="{% static 'wheelspin/assets/css/plugin.css' %}">
 
     <!-- stylesheet -->
-    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'wheelspin/assets/css/style.css' %}">
     <!-- responsive -->
-    <link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'wheelspin/assets/css/responsive.css' %}">
 </head>
 
 <body>
@@ -121,7 +121,7 @@
                                                         </ul>
                                                     </li>
                                                 </ul>
-                                                <a href="cart.html" class="link-btn">Cart Page</a>
+                                                <a href="/cart" class="link-btn">Cart Page</a>
                                             </div>
                                         </div>
                                     </li>
@@ -184,8 +184,8 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <nav class="navbar navbar-expand-lg navbar-light">
-                            <a class="navbar-brand" href="index.html">
-								<img src="{% static 'assets/images/logo.png' %}" alt="">
+                            <a class="navbar-brand" href="/">
+								<img src="{% static 'wheelspin/assets/images/logo.png' %}" alt="">
 							</a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_menu" aria-controls="main_menu" aria-expanded="false" aria-label="Toggle navigation">
 								<span class="navbar-toggler-icon"></span>
@@ -198,20 +198,20 @@
 										<div class="mr-hover-effect"></div>
 										</a>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="index.html"> <i class="fa fa-angle-double-right"></i>Home 1</a></li>
-                                            <li><a class="dropdown-item" href="index2.html"> <i class="fa fa-angle-double-right"></i> Home 2</a></li>
+                                            <li><a class="dropdown-item" href="/"> <i class="fa fa-angle-double-right"></i>Home 1</a></li>
+                                            <li><a class="dropdown-item" href="/"> <i class="fa fa-angle-double-right"></i> Home 2</a></li>
                                         </ul>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="play.html">Play
+                                        <a class="nav-link" href="/play">Play
 												<div class="mr-hover-effect"></div></a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="lottery.html">lottery
+                                        <a class="nav-link" href="/lottery">lottery
 												<div class="mr-hover-effect"></div></a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="tournaments.html">tournaments
+                                        <a class="nav-link" href="/tournaments">tournaments
 												<div class="mr-hover-effect"></div></a>
                                     </li>
                                     <li class="nav-item dropdown">
@@ -220,20 +220,20 @@
 											<div class="mr-hover-effect"></div>
 										</a>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="about.html"> <i class="fa fa-angle-double-right"></i>About</a></li>
-                                            <li><a class="dropdown-item" href="affiliate.html"> <i class="fa fa-angle-double-right"></i>Affiliate</a></li>
-                                            <li><a class="dropdown-item" href="awards.html"> <i class="fa fa-angle-double-right"></i>Awards</a></li>
-                                            <li><a class="dropdown-item" href="bonus.html"> <i class="fa fa-angle-double-right"></i>Bonus</a></li>
-                                            <li><a class="dropdown-item" href="cart.html"> <i class="fa fa-angle-double-right"></i>Cart</a></li>
-                                            <li><a class="dropdown-item" href="faq.html"> <i class="fa fa-angle-double-right"></i>Faq</a></li>
-                                            <li><a class="dropdown-item" href="how-it-work.html"> <i class="fa fa-angle-double-right"></i>How It Work</a></li>
-                                            <li><a class="dropdown-item" href="terms-conditions.html"> <i class="fa fa-angle-double-right"></i>Terms & Condition</a></li>
-                                            <li><a class="dropdown-item" href="terms-conditions-details.html"> <i class="fa fa-angle-double-right"></i>Condition Details</a></li>
-                                            <li><a class="dropdown-item" href="404.html"> <i class="fa fa-angle-double-right"></i>404</a></li>
+                                            <li><a class="dropdown-item" href="/about"> <i class="fa fa-angle-double-right"></i>About</a></li>
+                                            <li><a class="dropdown-item" href="/affiliate"> <i class="fa fa-angle-double-right"></i>Affiliate</a></li>
+                                            <li><a class="dropdown-item" href="/awards"> <i class="fa fa-angle-double-right"></i>Awards</a></li>
+                                            <li><a class="dropdown-item" href="/bonus"> <i class="fa fa-angle-double-right"></i>Bonus</a></li>
+                                            <li><a class="dropdown-item" href="/cart"> <i class="fa fa-angle-double-right"></i>Cart</a></li>
+                                            <li><a class="dropdown-item" href="/faq"> <i class="fa fa-angle-double-right"></i>Faq</a></li>
+                                            <li><a class="dropdown-item" href="/how-it-work"> <i class="fa fa-angle-double-right"></i>How It Work</a></li>
+                                            <li><a class="dropdown-item" href="/terms-conditions"> <i class="fa fa-angle-double-right"></i>Terms & Condition</a></li>
+                                            <li><a class="dropdown-item" href="/terms-conditions-details"> <i class="fa fa-angle-double-right"></i>Condition Details</a></li>
+                                            <li><a class="dropdown-item" href="/404"> <i class="fa fa-angle-double-right"></i>404</a></li>
                                         </ul>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="contact.html">Contact
+                                        <a class="nav-link" href="/contact">Contact
 													<div class="mr-hover-effect"></div></a>
                                     </li>
                                 </ul>
@@ -250,7 +250,7 @@
 
     <!-- Breadcrumb Area Start -->
     <section class="breadcrumb-area bc-affiliate">
-        <img class="bc-img" src="{% static 'assets/images/breadcrumb/affiliate.png' %}" alt="">
+        <img class="bc-img" src="{% static 'wheelspin/assets/images/breadcrumb/affiliate.png' %}" alt="">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -259,7 +259,7 @@
                     </h4>
                     <ul class="breadcrumb-list">
                         <li>
-                            <a href="index.html">
+                            <a href="/">
 									<i class="fas fa-home"></i>
 									Home
 							</a>
@@ -268,7 +268,7 @@
                             <span><i class="fas fa-chevron-right"></i> </span>
                         </li>
                         <li>
-                            <a href="affiliate.html">Affiliate</a>
+                            <a href="/affiliate">Affiliate</a>
                         </li>
                     </ul>
                 </div>
@@ -283,7 +283,7 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="single-process">
-                        <img src="{% static 'assets/images/affiliate/ps1.png' %}" alt="">
+                        <img src="{% static 'wheelspin/assets/images/affiliate/ps1.png' %}" alt="">
                         <span class="num">1</span>
                         <h4 class="title">
                             Join
@@ -295,7 +295,7 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="single-process">
-                        <img src="{% static 'assets/images/affiliate/ps2.png' %}" alt="">
+                        <img src="{% static 'wheelspin/assets/images/affiliate/ps2.png' %}" alt="">
                         <span class="num">2</span>
                         <h4 class="title">
                             Promote
@@ -307,7 +307,7 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="single-process">
-                        <img src="{% static 'assets/images/affiliate/ps3.png' %}" alt="">
+                        <img src="{% static 'wheelspin/assets/images/affiliate/ps3.png' %}" alt="">
                         <span class="num">3</span>
                         <h4 class="title">
                             Earn
@@ -345,7 +345,7 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="single-program">
                         <div class="icon one">
-                            <img src="{% static 'assets/images/affiliate/ic1.png' %}" alt="">
+                            <img src="{% static 'wheelspin/assets/images/affiliate/ic1.png' %}" alt="">
                         </div>
                         <div class="content">
                             <h4 class="title">
@@ -358,7 +358,7 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="single-program">
                         <div class="icon four">
-                            <img src="{% static 'assets/images/affiliate/ic2.png' %}" alt="">
+                            <img src="{% static 'wheelspin/assets/images/affiliate/ic2.png' %}" alt="">
                         </div>
                         <div class="content">
                             <h4 class="title">
@@ -371,7 +371,7 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="single-program">
                         <div class="icon two">
-                            <img src="{% static 'assets/images/affiliate/ic3.png' %}" alt="">
+                            <img src="{% static 'wheelspin/assets/images/affiliate/ic3.png' %}" alt="">
                         </div>
                         <div class="content">
                             <h4 class="title">
@@ -384,7 +384,7 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="single-program">
                         <div class="icon two">
-                            <img src="{% static 'assets/images/affiliate/ic4.png' %}" alt="">
+                            <img src="{% static 'wheelspin/assets/images/affiliate/ic4.png' %}" alt="">
                         </div>
                         <div class="content">
                             <h4 class="title">
@@ -397,7 +397,7 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="single-program">
                         <div class="icon three">
-                            <img src="{% static 'assets/images/affiliate/ic5.png' %}" alt="">
+                            <img src="{% static 'wheelspin/assets/images/affiliate/ic5.png' %}" alt="">
                         </div>
                         <div class="content">
                             <h4 class="title">
@@ -410,7 +410,7 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="single-program">
                         <div class="icon three">
-                            <img src="{% static 'assets/images/affiliate/ic6.png' %}" alt="">
+                            <img src="{% static 'wheelspin/assets/images/affiliate/ic6.png' %}" alt="">
                         </div>
                         <div class="content">
                             <h4 class="title">
@@ -427,7 +427,7 @@
 
     <!-- Ref Commission Area Start -->
     <section class="ref-commission">
-        <img class="ab-img" src="{% static 'assets/images/affiliate/ref-comm.png' %}" alt="">
+        <img class="ab-img" src="{% static 'wheelspin/assets/images/affiliate/ref-comm.png' %}" alt="">
         <div class="container">
             <div class="row justify-content-end">
                 <div class="col-lg-7">
@@ -474,7 +474,7 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="single-tools">
                         <div class="icon one">
-                            <img src="{% static 'assets/images/affiliate/ic7.png' %}" alt="">
+                            <img src="{% static 'wheelspin/assets/images/affiliate/ic7.png' %}" alt="">
                         </div>
                         <div class="content">
                             <h4 class="title">
@@ -489,7 +489,7 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="single-tools">
                         <div class="icon two">
-                            <img src="{% static 'assets/images/affiliate/ic8.png' %}" alt="">
+                            <img src="{% static 'wheelspin/assets/images/affiliate/ic8.png' %}" alt="">
                         </div>
                         <div class="content">
                             <h4 class="title">
@@ -504,7 +504,7 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="single-tools">
                         <div class="icon three">
-                            <img src="{% static 'assets/images/affiliate/ic9.png' %}" alt="">
+                            <img src="{% static 'wheelspin/assets/images/affiliate/ic9.png' %}" alt="">
                         </div>
                         <div class="content">
                             <h4 class="title">
@@ -519,7 +519,7 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="single-tools">
                         <div class="icon three">
-                            <img src="{% static 'assets/images/affiliate/ic10.png' %}" alt="">
+                            <img src="{% static 'wheelspin/assets/images/affiliate/ic10.png' %}" alt="">
                         </div>
                         <div class="content">
                             <h4 class="title">
@@ -561,7 +561,7 @@
 
                             <div class="people">
                                 <div class="img">
-                                    <img src="{% static 'assets/images/review.png' %}" alt="">
+                                    <img src="{% static 'wheelspin/assets/images/review.png' %}" alt="">
                                 </div>
                                 <h4 class="title">Kevin Ohashi</h4>
                                 <p class="designation">CEO OF APPLE</p>
@@ -576,7 +576,7 @@
 
                             <div class="people">
                                 <div class="img">
-                                    <img src="{% static 'assets/images/review.png' %}" alt="">
+                                    <img src="{% static 'wheelspin/assets/images/review.png' %}" alt="">
                                 </div>
                                 <h4 class="title">Mamun Khan</h4>
                                 <p class="designation">CEO OF APPLE</p>
@@ -615,7 +615,7 @@
                                     </div>
                                     <div class="col-lg-3 col-4 d-flex align-self-center">
                                         <div class="icon">
-                                            <img src="{% static 'assets/images/mail-box.png' %}" alt="">
+                                            <img src="{% static 'wheelspin/assets/images/mail-box.png' %}" alt="">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-8 d-flex align-self-center">
@@ -848,7 +848,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <div class="modal-body">
                     <div class="logo-area">
-                        <img class="logo" src="{% static 'assets/images/logo.png' %}" alt="">
+                        <img class="logo" src="{% static 'wheelspin/assets/images/logo.png' %}" alt="">
                     </div>
                     <div class="header-area">
                         <h4 class="title">Great to have you back!</h4>
@@ -900,7 +900,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <div class="modal-body">
                     <div class="logo-area">
-                        <img class="logo" src="{% static 'assets/images/logo.png' %}" alt="">
+                        <img class="logo" src="{% static 'wheelspin/assets/images/logo.png' %}" alt="">
                     </div>
                     <div class="header-area">
                         <h4 class="title">Great to have you back!</h4>
@@ -951,19 +951,19 @@
     <!-- SignIn Area End -->
 
     <!-- jquery -->
-    <script src="{% static 'assets/js/jquery.js' %}"></script>
+    <script src="{% static 'wheelspin/assets/js/jquery.js' %}"></script>
     <!-- popper -->
-    <script src="{% static 'assets/js/popper.min.js' %}"></script>
+    <script src="{% static 'wheelspin/assets/js/popper.min.js' %}"></script>
     <!-- bootstrap -->
-    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'wheelspin/assets/js/bootstrap.min.js' %}"></script>
     <!-- plugin js-->
-    <script src="{% static 'assets/js/plugin.js' %}"></script>
+    <script src="{% static 'wheelspin/assets/js/plugin.js' %}"></script>
 
     <!-- MpusemoverParallax JS-->
-    <script src="{% static 'assets/js/TweenMax.js' %}"></script>
-    <script src="{% static 'assets/js/mousemoveparallax.js' %}"></script>
+    <script src="{% static 'wheelspin/assets/js/TweenMax.js' %}"></script>
+    <script src="{% static 'wheelspin/assets/js/mousemoveparallax.js' %}"></script>
     <!-- main -->
-    <script src="{% static 'assets/js/main.js' %}"></script>
+    <script src="{% static 'wheelspin/assets/js/main.js' %}"></script>
 </body>
 
 </html>
