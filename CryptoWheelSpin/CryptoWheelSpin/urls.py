@@ -35,6 +35,9 @@ urlpatterns = [
     path('terms-conditions-details/', termsConditionsDetails, name='terms-conditions-details'),
     path('terms-conditions/', termsConditions, name='terms-conditions'),
     path('tournaments/', tournaments, name='tournaments'),
+    path('game/', game, name='game'),
+    path('slots/', slots, name='slots'),
+    path('slotlist/', slotlist, name='slotlist')
 ]
 
 urlpatterns += staticfiles_urlpatterns()

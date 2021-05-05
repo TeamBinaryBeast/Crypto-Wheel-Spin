@@ -1,0 +1,40 @@
+{% extends 'wheelspin/base.html' %}
+{% load static %}
+{% block title %}Crypto Wheel Spin{% endblock %}
+{% block headlinks %}
+    <link rel="stylesheet" href="{% static 'wheelspin/game/css/main.css' %}" type="text/css" />
+    <script type="text/javascript" src="{% static 'wheelspin/game/js/Winwheel.js' %}"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+{% endblock %}
+{% block body %}
+
+    {{ room_name|json_script:"room-name" }}
+    <div>{{joined}}</div>
+    <section class="four-zero-four">
+    <div align="center">
+            
+            <table cellpadding="0" cellspacing="0" border="0">
+            <tr>
+                <td>
+                    <div class="power_controls">
+                        <br />
+                        <br />
+                       
+                        <img id="spin_button"  alt="Spin" onClick="startSpin();" />
+                        <br /><br />
+                        &nbsp;&nbsp;
+                    </div>
+                </td>
+                <td width="438" height="582" class="the_wheel" align="center" valign="center">
+                    <canvas id="canvas" width="434" height="434" onclick="startSpin()">
+                        <p style="{color: white}" align="center">Sorry, your browser doesn't support canvas. Please try another.</p>
+                    </canvas>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </section>
+{% block footerlinks %}
+    <script type="text/javascript" src="{% static 'wheelspin/game/js/main.js' %}"></script>
+{% endblock %}
+{% endblock %}

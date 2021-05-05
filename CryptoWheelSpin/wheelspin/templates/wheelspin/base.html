@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{% static 'wheelspin/assets/css/style.css' %}">
     <!-- responsive -->
     <link rel="stylesheet" href="{% static 'wheelspin/assets/css/responsive.css' %}">
+    {% block headlinks %}{% endblock %}
 </head>
 
 <body>
@@ -62,6 +63,7 @@
     <script src="{% static 'wheelspin/assets/js/mousemoveparallax.js' %}"></script>
     <!-- main -->
     <script src="{% static 'wheelspin/assets/js/main.js' %}"></script>
+    {% block footerlinks %}{% endblock %}
 </body>
 
 </html>

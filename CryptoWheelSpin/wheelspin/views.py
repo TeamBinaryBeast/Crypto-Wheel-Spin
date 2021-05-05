@@ -62,3 +62,13 @@ def tournaments(request, *args, **kwargs):
     return render(request, 'wheelspin/tournaments.html')
 
 
+def game(request, *args, **kwargs):
+    return render(request, 'wheelspin/wheelgame.html')
+
+
+def slots(request, *args, **kwargs):
+    return render(request, 'wheelspin/slots.html')
+
+
+def slotlist(request, *args, **kwargs):
+    return render(request, 'wheelspin/slotlist.html')
