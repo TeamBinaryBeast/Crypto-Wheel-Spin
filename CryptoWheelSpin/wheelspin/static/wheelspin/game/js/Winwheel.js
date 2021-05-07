@@ -1854,6 +1854,7 @@ Winwheel.prototype.computeAnimation = function()
 
             if (this.animation.yoyo == null) {
                 this.animation.yoyo = false;
+                
             }
 
             // The property value is the spins * 360 then plus or minus the stopAngle depending on if the rotation is clockwise or anti-clockwise.
