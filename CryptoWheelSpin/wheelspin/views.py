@@ -106,13 +106,18 @@ def wheelgame(request,room_name, *args, **kwargs):
         exist.status = "FINISHED"
         deg = random.randint(1,359)
         per = 360/(exist.total)
-        win_index = math.trunc(deg/per)
+        win_index = (exist.total-1) - ((math.ceil(deg/per)) - 1)
+        # win_index = math.trunc(deg/per)
         allParticipents = [user for user in exist.users_m.all()]
         exist.winner = allParticipents[win_index].username
         exist.deg = deg
         exist.save()
+        
         print(deg,per,win_index,exist.winner)
         userlist = [user.username for user in exist.users_m.all()]
+        print(allParticipents)
+        print(userlist)
+        print(deg)
         return render(request, 'wheelspin/wheelgame.html',{
             'room_name' : room_name,
             'userlist' : userlist,

@@ -1,6 +1,7 @@
 
             const userlist = JSON.parse(document.getElementById('userlist').textContent);
             const deg = JSON.parse(document.getElementById('deg').textContent);
+            console.log(typeof(userlist))
             // debug
             alert(`Users: [${userlist}]\nDegree:${deg}`)
             let segments = []
