@@ -1,4 +1,15 @@
 
+            const userlist = JSON.parse(document.getElementById('userlist').textContent);
+            const deg = JSON.parse(document.getElementById('deg').textContent);
+            // debug
+            alert(`Users: [${userlist}]\nDegree:${deg}`)
+            let segments = []
+            userlist.map(e=>{
+                var randomColor = Math.floor(Math.random()*16777215).toString(16);
+                obj = {'fillStyle' : "#"+randomColor, 'text' : e}
+                segments.push(obj)
+            })
+            
             // Create new wheel object specifying the parameters at creation time.
             let theWheel = new Winwheel({
                 'outerRadius'     : 212,        // Set outer radius so wheel fits inside the background.
@@ -6,90 +17,8 @@
                 'textFontSize'    : 16,         // Set default font size for the segments.
                 'textOrientation' : 'vertical', // Make text vertial so goes down from the outside of wheel.
                 'textAlignment'   : 'outer',    // Align text to outside of wheel.
-                'numSegments'     : 80,         // Specify number of segments.
-                'segments'        :             // Define segments including colour and text.
-                [                               // font size and test colour overridden on backrupt segments.
-                   {'fillStyle' : '#ee1c24', 'text' : 'Jisan'},
-                   {'fillStyle' : '#3cb878', 'text' : 'Raihan'},
-                   {'fillStyle' : '#f6989d', 'text' : 'Saiful'},
-                   {'fillStyle' : '#00aef0', 'text' : 'Rion'},
-                   {'fillStyle' : '#f26522', 'text' : 'Wahid'},
-                   {'fillStyle' : '#0ff000', 'text' : 'Sakib'},
-                   {'fillStyle' : '#e70697', 'text' : 'Bely'},
-                   {'fillStyle' : '#fff200', 'text' : 'Mohona'},
-                   {'fillStyle' : '#f6989d', 'text' : 'Himel'},
-                   {'fillStyle' : '#ee1c24', 'text' : 'Munna'},
-                   {'fillStyle' : '#3cb878', 'text' : 'Sohan'},
-                   {'fillStyle' : '#f26522', 'text' : 'Maruf'},
-                   {'fillStyle' : '#a186be', 'text' : 'Sadman'},
-                   {'fillStyle' : '#fff200', 'text' : 'Jerin'},
-                   {'fillStyle' : '#00aef0', 'text' : 'Toushin'},
-                   {'fillStyle' : '#ee1c24', 'text' : 'Ali'},
-                   {'fillStyle' : '#f6989d', 'text' : 'Sohan'},
-                   {'fillStyle' : '#f26522', 'text' : 'Raaz'},
-                   {'fillStyle' : '#3cb878', 'text' : 'Anvir'},
-                   {'fillStyle' : '#00ff00', 'text' : 'Tanvir'},
-                   {'fillStyle' : '#a186be', 'text' : 'Redwan'},
-                   {'fillStyle' : '#fff200', 'text' : 'Hasan'},
-                   {'fillStyle' : '#00aef0', 'text' : 'Shiblee'},
-                   {'fillStyle' : '#f6989d', 'text' : 'Sohan'},
-                   {'fillStyle' : '#f26522', 'text' : 'Raaz'},
-                   {'fillStyle' : '#3cb878', 'text' : 'Anvir'},
-                   {'fillStyle' : '#00ff00', 'text' : 'Tanvir'},
-                   {'fillStyle' : '#a186be', 'text' : 'Redwan'},
-                   {'fillStyle' : '#fff200', 'text' : 'Hasan'},
-                   {'fillStyle' : '#00aef0', 'text' : 'Shiblee'},
-                   {'fillStyle' : '#ffffff', 'text' : 'Rakib'},
-                   {'fillStyle' : '#ffffff', 'text' : 'Rakib'},
-                   {'fillStyle' : '#ee1c24', 'text' : 'Jisan'},
-                   {'fillStyle' : '#3cb878', 'text' : 'Raihan'},
-                   {'fillStyle' : '#f6989d', 'text' : 'Saiful'},
-                   {'fillStyle' : '#00aef0', 'text' : 'Rion'},
-                   {'fillStyle' : '#f26522', 'text' : 'Wahid'},
-                   {'fillStyle' : '#0ff000', 'text' : 'Sakib'},
-                   {'fillStyle' : '#e70697', 'text' : 'Bely'},
-                   {'fillStyle' : '#fff200', 'text' : 'Mohona'},
-                   {'fillStyle' : '#f6989d', 'text' : 'Himel'},
-                   {'fillStyle' : '#ee1c24', 'text' : 'Munna'},
-                   {'fillStyle' : '#3cb878', 'text' : 'Sohan'},
-                   {'fillStyle' : '#f26522', 'text' : 'Maruf'},
-                   {'fillStyle' : '#a186be', 'text' : 'Sadman'},
-                   {'fillStyle' : '#fff200', 'text' : 'Jerin'},
-                   {'fillStyle' : '#00aef0', 'text' : 'Toushin'},
-                   {'fillStyle' : '#ee1c24', 'text' : 'Ali'},
-                   {'fillStyle' : '#f6989d', 'text' : 'Sohan'},
-                   {'fillStyle' : '#f26522', 'text' : 'Raaz'},
-                   {'fillStyle' : '#3cb878', 'text' : 'Anvir'},
-                   {'fillStyle' : '#00ff00', 'text' : 'Tanvir'},
-                   {'fillStyle' : '#a186be', 'text' : 'Redwan'},
-                   {'fillStyle' : '#fff200', 'text' : 'Hasan'},
-                   {'fillStyle' : '#00aef0', 'text' : 'Shiblee'},
-                   {'fillStyle' : '#ffffff', 'text' : 'Rakib'},
-                   {'fillStyle' : '#ee1c24', 'text' : 'Jisan'},
-                   {'fillStyle' : '#3cb878', 'text' : 'Raihan'},
-                   {'fillStyle' : '#f6989d', 'text' : 'Saiful'},
-                   {'fillStyle' : '#00aef0', 'text' : 'Rion'},
-                   {'fillStyle' : '#f26522', 'text' : 'Wahid'},
-                   {'fillStyle' : '#0ff000', 'text' : 'Sakib'},
-                   {'fillStyle' : '#e70697', 'text' : 'Bely'},
-                   {'fillStyle' : '#fff200', 'text' : 'Mohona'},
-                   {'fillStyle' : '#f6989d', 'text' : 'Himel'},
-                   {'fillStyle' : '#ee1c24', 'text' : 'Munna'},
-                   {'fillStyle' : '#3cb878', 'text' : 'Sohan'},
-                   {'fillStyle' : '#f26522', 'text' : 'Maruf'},
-                   {'fillStyle' : '#a186be', 'text' : 'Sadman'},
-                   {'fillStyle' : '#fff200', 'text' : 'Jerin'},
-                   {'fillStyle' : '#00aef0', 'text' : 'Toushin'},
-                   {'fillStyle' : '#ee1c24', 'text' : 'Ali'},
-                   {'fillStyle' : '#f6989d', 'text' : 'Sohan'},
-                   {'fillStyle' : '#f26522', 'text' : 'Raaz'},
-                   {'fillStyle' : '#3cb878', 'text' : 'Anvir'},
-                   {'fillStyle' : '#00ff00', 'text' : 'Tanvir'},
-                   {'fillStyle' : '#a186be', 'text' : 'Redwan'},
-                   {'fillStyle' : '#fff200', 'text' : 'Hasan'},
-                   {'fillStyle' : '#00aef0', 'text' : 'Shiblee'},
-                   {'fillStyle' : '#ffffff', 'text' : 'Rakib'},
-                ],
+                'numSegments'     : segments.length,         // Specify number of segments.
+                'segments'        :   segments,          // Define segments including colour and text.
                 'animation' :           // Specify the animation to use.
                 {
                     'type'     : 'spinToStop',
@@ -101,7 +30,7 @@
                 },
                 'pins' :				// Turn pins on.
                 {
-                    'number'     : 80,
+                    'number'     : segments.length,
                     'fillStyle'  : 'yellow',
                     'outerRadius': 4,
                 }
@@ -223,33 +152,3 @@
                 }
             }
 
-
-        //socket code goes here.........................................................
-        // const roomName = JSON.parse(document.getElementById('room-name').textContent);
-
-        // const chatSocket = new WebSocket(
-        //     'ws://'
-        //     + window.location.host
-        //     + '/ws/chat/'
-        //     + roomName
-        //     + '/'
-        // );
-
-        // chatSocket.onmessage = function(e) {
-        //     const data = JSON.parse(e.data);
-        //     startSpin()
-        // };
-
-        // chatSocket.onclose = function(e) {
-        //     console.error('Chat socket closed unexpectedly');
-        // };
-
-
-
-        // document.querySelector('#spin_button').onclick = function(e) {
-        //     const message ="Spin";
-        //     chatSocket.send(JSON.stringify({
-        //         'message': message
-        //     }));
-        //     messageInputDom.value = '';
-        // };
