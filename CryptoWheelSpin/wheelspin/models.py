@@ -11,3 +11,18 @@ class Credits(models.Model):
     class meta:
         managed = True
         db_table = 'Credits'
+
+class Rooms(models.Model):
+    room_name = models.CharField(max_length=100)
+    users_m = models.ManyToManyField(User)
+    bet = models.IntegerField()
+    total = models.IntegerField()
+    deg = models.IntegerField()
+    winner = models.CharField(max_length=100,default="NO WINNER")
+    status = models.CharField(max_length=20,default="RUNNING")
+    def __str__(self):
+        return str(self.room_name)
+    objects = models.Manager()
+    class meta:
+        managed = True
+        db_table = 'Rooms'

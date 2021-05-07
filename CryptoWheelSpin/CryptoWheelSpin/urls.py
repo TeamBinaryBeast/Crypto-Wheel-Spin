@@ -14,13 +14,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from wheelspin.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index, name='index'),
+    path('accounts/', include('django.contrib.auth.urls')),
+
+    path('', home, name='home'),
     path('404/', err404, name='err404'),
     path('about/', about, name='about'),
     path('affiliate/', affiliate, name='affiliate'),
@@ -37,7 +39,9 @@ urlpatterns = [
     path('tournaments/', tournaments, name='tournaments'),
     path('game/', game, name='game'),
     path('slots/', slots, name='slots'),
-    path('slotlist/', slotlist, name='slotlist')
+    path('slotlist/', slotlist, name='slotlist'),
+    
+    path('games/', include('wheelspin.urls')),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
