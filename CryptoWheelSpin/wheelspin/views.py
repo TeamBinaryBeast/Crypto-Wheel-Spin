@@ -45,6 +45,12 @@ def slots(request, *args, **kwargs):
     return render(request, 'wheelspin/slots.html')
 def slotlist(request, *args, **kwargs):
     return render(request, 'wheelspin/slotlist.html')
+def gameresults(request, *args, **kwargs):
+    return render(request, 'wheelspin/gameresults.html')
+def transactions(request, *args, **kwargs):
+    return render(request, 'wheelspin/transactions.html')
+def exchange(request, *args, **kwargs):
+    return render(request, 'wheelspin/exchange.html')
 
 
 @login_required
