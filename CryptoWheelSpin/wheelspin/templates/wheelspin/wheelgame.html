@@ -20,13 +20,15 @@
                         <br />
                         <br />
                        
-                        <img src="https://img.icons8.com/cute-clipart/64/000000/start.png" id="spin_button"  alt="Spin" onClick="startSpin();" />
+                        <!-- <img src="https://img.icons8.com/cute-clipart/64/000000/start.png" id="spin_button"  alt="Spin" onClick="startSpin()" /> -->
+                        <img src id="spin_button" hidden alt="Spin" onClick="startSpin()" />
                         <br /><br />
                         &nbsp;&nbsp;
                     </div>
                 </td>
                 <td width="438" height="582" class="the_wheel" align="center" valign="center">
-                    <canvas id="canvas" width="434" height="434" onclick="startSpin()">
+                    <!-- <canvas id="canvas" width="434" height="434" onclick="startSpin()"> -->
+                    <canvas id="canvas" width="434" height="434">
                         <p style="{color: white}" align="center">Sorry, your browser doesn't support canvas. Please try another.</p>
                     </canvas>
                 </td>
@@ -34,18 +36,16 @@
         </table>
     </div>
     </section>
-    <p>askldhjksahdkjsajdlksahkjdsahjkdhsajkdhskjdhjksahdjk</p>
-    {% for x in userlist %}
-    <p>{{x}}</p>
-    {% endfor %}
     {{ userlist|json_script:"userlist" }}
     {{ deg|json_script:"deg" }}
 
 {% block footerlinks %}
-<script>
-    alert("{{winner}} {{deg}}")
-</script>
     <script type="text/javascript" src="{% static 'wheelspin/game/js/main.js' %}"></script>
+    <script>
+        (function(){
+            startSpin() 
+        })();
+    </script>
 {% endblock %}
 
 {% endblock %}

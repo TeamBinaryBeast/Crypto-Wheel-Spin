@@ -1,6 +1,7 @@
 {% extends 'wheelspin/base.html' %}
 {% load static %}
 {% block title %}Crypto Wheel Spin{% endblock %}
+{% load mathfilters %}
 {% block body %}
 
     <!-- Breadcrumb Area Start -->
@@ -55,32 +56,32 @@
                                                                 <tr>
                                                                     <th scope="col">Entry Fee</th>
                                                                     <th scope="col">Win Bonus</th>
-                                                                    <th scope="col">Capacity</th>
-                                                                    <th scope="col">Joined</th>
+                                                                    <th scope="col">Slots</th>
                                                                     <th scope="col"></th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
+                                                                {% for slot in slots %}
                                                                 <tr>
                                                                     <td>
-                                                                        <img src="{% static 'wheelspin/assets/images/icon1.png' %}" alt=""> 500$
+                                                                        <img src="{% static 'wheelspin/assets/images/icon1.png' %}" alt=""> {{slot.bet}}$
                                                                     </td>
                                                                     <td>
-                                                                        01
+                                                                        {{ slot.bet|mul:slot.capacity }}
                                                                     </td>
                                                                     <td>
-                                                                        01
+                                                                        {{slot.capacity}}
                                                                     </td>
                                                                     <td>
-                                                                        33528.36
-                                                                    </td>
-                                                                    <td>
-                                                                        <a href="/games/reqForROOM/5/5">
-                                                                            <button style="background-color: #f0ad4e; color: black; padding: 5px 40px; border-radius: 14px; outline: none; border: none;">Join</btutton>
+                                                                        <a href="/games/reqForROOM/{{slot.bet}}/{{slot.capacity}}">
+                                                                            <button style="background-color: #f0ad4e; color: black; padding: 5px 40px; border-radius: 14px; outline: none; border: none;">Join</button>
                                                                         </a>
                                                                     </td>
                                                                 </tr>
-                                                                <tr>
+                                                                {% endfor %}
+
+                                                                <!--  -->
+                                                                <!-- <tr>
                                                                     <td>
                                                                         <img src="{% static 'wheelspin/assets/images/icon1.png' %}" alt=""> 500$
                                                                     </td>
@@ -232,7 +233,7 @@
                                                                     <td>
                                                                         <button style="background-color: #f0ad4e; color: black; padding: 5px 40px; border-radius: 14px; outline: none; border: none;">Join</btutton>
                                                                     </td>
-                                                                </tr>
+                                                                </tr> -->
                                                             </tbody>
                                                         </table>
                                                     </div>

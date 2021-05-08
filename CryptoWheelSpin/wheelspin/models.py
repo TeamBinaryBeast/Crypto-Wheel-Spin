@@ -4,7 +4,7 @@ import datetime
 from dateutil.parser import parse
 import maya
 
-#Create your models here.
+# Create your models here.
 class Credits(models.Model):
     user_f = models.ForeignKey(User, on_delete=models.CASCADE)
     amount = models.FloatField()
@@ -17,10 +17,11 @@ class Credits(models.Model):
 
 class Rooms(models.Model):
     room_name = models.CharField(max_length=100)
-    users_m = models.ManyToManyField(User)
+    users_m = models.ManyToManyField(User, related_name="user_m")
     bet = models.IntegerField()
     total = models.IntegerField()
     deg = models.IntegerField()
+    showed = models.ManyToManyField(User, related_name="showed",blank=True)
     winner = models.CharField(max_length=100,default="NO WINNER")
     status = models.CharField(max_length=20,default="RUNNING")
     def __str__(self):
@@ -43,7 +44,7 @@ class GameDetails(models.Model):
     def __str__(self):
         date_time_str = str(self.time)
         date_time_obj = maya.parse(date_time_str).datetime()
-        return (self.username + " " + str(date_time_obj.date()) + " " + str(date_time_obj.time().strftime("%I:%M %p")) + " " + str(date_time_obj.tzinfo))
+        return (self.username.username + " " + str(date_time_obj.date()) + " " + str(date_time_obj.time().strftime("%I:%M %p")) + " " + str(date_time_obj.tzinfo))
     
 
 
@@ -61,3 +62,12 @@ class BalanceDetails(models.Model):
         return (self.username + " " + str(date_time_obj.date()) + " " + str(date_time_obj.time().strftime("%I:%M %p")) + " " + str(date_time_obj.tzinfo))
 
 
+class Slots(models.Model):
+    capacity = models.IntegerField()
+    bet = models.IntegerField()
+    def __str__(self):
+        return str("BET:" + str(self.bet) + "->" + "Capacity:"+ str(self.capacity))
+    objects = models.Manager()
+    class meta:
+        managed = True
+        db_table = 'Slots'

@@ -2,12 +2,15 @@ from django.shortcuts import render,redirect
 from django.http import JsonResponse
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from .models import Rooms
+from .models import Credits,Rooms,BalanceDetails,Slots,GameDetails
 import random,math,string
 
 ERROR = JsonResponse({
     "RES" : "ERROR"
 })
+
+SLOTS = [5,10,15,20,30]
+AMS = [1,5,10,20,50,100,500,1000,5000,10000]
 
 def home(request, *args, **kwargs):
     return render(request, 'wheelspin/index.html')
@@ -44,13 +47,26 @@ def game(request, *args, **kwargs):
 def slots(request, *args, **kwargs):
     return render(request, 'wheelspin/slots.html')
 def slotlist(request, *args, **kwargs):
-    return render(request, 'wheelspin/slotlist.html')
+    slots = Slots.objects.all()
+    return render(request, 'wheelspin/slotlist.html',{
+        "slots":slots
+    })
 
 
 @login_required
 def reqForROOM(request,bet,total):
+    slots = Slots.objects.all()
+    valid = False
     bet,total = int(bet),int(total)
-    exist =  Rooms.objects.filter(status = "RUNNING",bet=bet)
+    for slot in slots:
+        if slot.bet==bet and slot.capacity==total:
+            valid = True
+    if not valid:
+        return ERROR 
+    isBroke = Credits.objects.get(user_f=request.user.id)
+    if isBroke.amount < bet:
+        return ERROR
+    exist =  Rooms.objects.filter(status = "RUNNING",bet=bet,total=total)
     if exist:
         room = exist[0]
         me = User.objects.get(id=request.user.id)    
@@ -100,24 +116,21 @@ def wheelgame(request,room_name, *args, **kwargs):
     # EXIST
     userValid = User.objects.get(id=request.user.id)
     isValid = [user for user in exist.users_m.all() if user.username == userValid.username]
-
     activeCouter = sum([1 for user in exist.users_m.all()])
-    if exist.status == "RUNNING" and exist.total == activeCouter and isValid:
+    if exist.status == "RUNNING" and exist.total == activeCouter and isValid:        
+        cutMONEYCOMPANY(exist)
         exist.status = "FINISHED"
         deg = random.randint(1,359)
         per = 360/(exist.total)
         win_index = (exist.total-1) - ((math.ceil(deg/per)) - 1)
-        # win_index = math.trunc(deg/per)
         allParticipents = [user for user in exist.users_m.all()]
         exist.winner = allParticipents[win_index].username
         exist.deg = deg
+        addMoneyToWinner(exist,allParticipents[win_index].username)
+        exist.showed.add(userValid)
         exist.save()
         
-        print(deg,per,win_index,exist.winner)
         userlist = [user.username for user in exist.users_m.all()]
-        print(allParticipents)
-        print(userlist)
-        print(deg)
         return render(request, 'wheelspin/wheelgame.html',{
             'room_name' : room_name,
             'userlist' : userlist,
@@ -125,16 +138,53 @@ def wheelgame(request,room_name, *args, **kwargs):
             'winner' : exist.winner
         })
     elif exist.status == "FINISHED" and exist.total == activeCouter and isValid:
-        userlist = [user.username for user in exist.users_m.all()]
-        return render(request, 'wheelspin/wheelgame.html',{
-            'room_name' : room_name,
-            'userlist' : userlist,
-            'deg' : exist.deg ,
-            'winner' : exist.winner
-        })
+        isShownToYou = [user for user in exist.showed.all() if user.username == userValid.username]
+        if not isShownToYou:
+            deg = exist.deg
+            winner = exist.winner
+            exist.showed.add(userValid)
+            exist.save()
+            countShow = sum([1 for user in exist.showed.all()])
+            userlist = [user.username for user in exist.users_m.all()]
+            print(countShow,activeCouter)
+            if countShow == activeCouter:
+                print("DELETE ME")
+                print(countShow,activeCouter)
+                exist.delete()
+            return render(request, 'wheelspin/wheelgame.html',{
+                'room_name' : room_name,
+                'userlist' : userlist,
+                'deg' : deg ,
+                'winner' : winner
+            })
+        else:
+            ERROR
     else:
         return ERROR
 
+
+def cutMONEYCOMPANY(room):
+    for user in room.users_m.all():
+        cutMoney = Credits.objects.get(user_f=user.id)
+        cutMoney.amount = cutMoney.amount - (room.bet*.1)
+        cutMoney.save()
+
+
+def addMoneyToWinner(room,username):
+    couter = sum([1 for user in room.users_m.all()])
+    user = User.objects.get(username=username)
+    addmoney = Credits.objects.get(user_f=user.id)
+    addmoney.amount = addmoney.amount + ((room.bet)*couter)*.9
+    addmoney.save()
+    for user in room.users_m.all():
+        gTrans = GameDetails(
+            username=user,
+            slot=room.bet,
+            capcity=room.total,
+            result="WIN" if room.winner==user.username else "LOSS",
+            charge=(room.bet)*.1
+        )
+        gTrans.save()
 
 def roomGEN(size=30, chars=string.ascii_uppercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))

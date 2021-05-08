@@ -2,8 +2,6 @@
             const userlist = JSON.parse(document.getElementById('userlist').textContent);
             const deg = JSON.parse(document.getElementById('deg').textContent);
             console.log(typeof(userlist))
-            // debug
-            alert(`Users: [${userlist}]\nDegree:${deg}`)
             let segments = []
             userlist.map(e=>{
                 var randomColor = Math.floor(Math.random()*16777215).toString(16);
@@ -145,11 +143,22 @@
                 // Just alert to the user what happened.
                 // In a real project probably want to do something more interesting than this with the result.
                 if (indicatedSegment.text == 'LOOSE TURN') {
-                    alert('Sorry but you loose a turn.');
+                    // alert('Sorry but you loose a turn.');
                 } else if (indicatedSegment.text == 'BANKRUPT') {
-                    alert('Oh no, you have gone BANKRUPT!');
+                    // alert('Oh no, you have gone BANKRUPT!');
                 } else {
-                    alert("You have won " + indicatedSegment.text);
+                    // alert("You have won " + indicatedSegment.text);
+                    let fzf = document.querySelector('.four-zero-four')
+                    fzf.innerHTML = `
+                    <div style="background:black;display:flex;justify-content:center;">
+                        <div>
+                            <h1>The Winner is ${indicatedSegment.text}</h1>
+                            <a style="display:flex;justify-content:center;" href="/slotlist">
+                                <button class="btn btn-primary my-4">Play Again</button>
+                            </a>
+                        </div>
+                    </div>
+                    `
                 }
             }
 
