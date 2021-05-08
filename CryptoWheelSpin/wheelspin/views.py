@@ -56,6 +56,8 @@ def exchange(request, *args, **kwargs):
     return render(request, 'wheelspin/exchange.html')
 def inplay(request, *args, **kwargs):
     return render(request, 'wheelspin/inplay.html')
+def prejoin(request, *args, **kwargs):
+    return render(request, 'wheelspin/prejoin.html')
 
 
 @login_required

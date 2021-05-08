@@ -45,6 +45,7 @@ urlpatterns = [
     path('transactions/', transactions, name="transactions"),
     path('exchange/', exchange, name="exchange"),
     path('inplay/', inplay, name="inplay"),
+    path('prejoin/', prejoin, name="prejoin"),
     path('games/', include('wheelspin.urls')),
 ]
 

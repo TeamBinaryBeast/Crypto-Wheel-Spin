@@ -38,6 +38,7 @@ class GameDetails(models.Model):
     capcity = models.BigIntegerField()
     result = models.CharField(max_length=10)
     charge = models.FloatField()
+    
     time = models.DateTimeField(auto_now_add=True, auto_now=False)
 
 
