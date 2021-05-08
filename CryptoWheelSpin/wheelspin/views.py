@@ -149,10 +149,7 @@ def wheelgame(request,room_name, *args, **kwargs):
             exist.save()
             countShow = sum([1 for user in exist.showed.all()])
             userlist = [user.username for user in exist.users_m.all()]
-            print(countShow,activeCouter)
             if countShow == activeCouter:
-                print("DELETE ME")
-                print(countShow,activeCouter)
                 exist.delete()
             return render(request, 'wheelspin/wheelgame.html',{
                 'room_name' : room_name,
