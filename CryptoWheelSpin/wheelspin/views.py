@@ -9,9 +9,6 @@ ERROR = JsonResponse({
     "RES" : "ERROR"
 })
 
-SLOTS = [5,10,15,20,30]
-AMS = [1,5,10,20,50,100,500,1000,5000,10000]
-
 def home(request, *args, **kwargs):
     return render(request, 'wheelspin/index.html')
 def err404(request, *args, **kwargs):
