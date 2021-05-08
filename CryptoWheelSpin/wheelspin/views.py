@@ -138,3 +138,9 @@ def wheelgame(request,room_name, *args, **kwargs):
 
 def roomGEN(size=30, chars=string.ascii_uppercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
+
+
+
+@login_required
+def profile(request):
+    return render(request,'wheelspin/profile.html')

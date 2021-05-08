@@ -21,7 +21,7 @@ from wheelspin.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
-
+    path('accounts/', include('accounts.urls')),
     path('', home, name='home'),
     path('404/', err404, name='err404'),
     path('about/', about, name='about'),
@@ -40,7 +40,7 @@ urlpatterns = [
     path('game/', game, name='game'),
     path('slots/', slots, name='slots'),
     path('slotlist/', slotlist, name='slotlist'),
-    
+    path('profile/', profile, name="profile"),
     path('games/', include('wheelspin.urls')),
 ]
 

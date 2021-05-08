@@ -24,13 +24,19 @@
                             </div>
                             <div class="right-content">
                                 <ul class="right-list">
-                                    
-                                    
+                                {% if not request.user.is_authenticated %}
                                     <li>
-                                        <a href="#" class="sign-in" data-toggle="modal" data-target="#login">
+                                        <a href="/accounts/login" class="sign-in">
 												<i class="fas fa-user"></i> Sign In
 											</a>
                                     </li>
+                                {% else %}
+                                    <li>
+                                        <a href="/accounts/logout" class="sign-in">
+												<i class="fas fa-user"></i> Logout
+											</a>
+                                    </li>
+                                {% endif %}
                                 </ul>
                             </div>
                         </div>
@@ -101,7 +107,11 @@
 												<div class="mr-hover-effect"></div></a>
                                     </li>
                                 </ul>
-                                <a href="#" class="mybtn1" data-toggle="modal" data-target="#signin"> Join us</a>
+                                {% if not request.user.is_authenticated %}
+                                    <a href="/accounts/signup" class="mybtn1">Sign Up</a>
+                                {% else %}
+                                    <a href="/profile" class="mybtn1">Profile</a>
+                                {% endif %}
                             </div>
                         </nav>
                     </div>
