@@ -40,6 +40,8 @@
                     <div class="gaming-activities">
                         <div class="gaming-activities-inner">
                             <div class="row">
+                                <!-- bmar -->
+                                {% for e in lof %}
                                 <div class="col-lg-4 col-md-6">
                                     <div class="single-activities">
                                         <div class="top-area">
@@ -53,7 +55,7 @@
                                             </div>
                                             <div class="right">
                                                 <h4 class="title">
-                                                    Crypto DICE
+                                                    {{e}}$
                                                 </h4>
                                                 <p class="text">
                                                     Roll the Dice
@@ -61,7 +63,7 @@
                                             </div>
                                         </div>
                                         <div class="bottom-area">
-                                            <h4 class="title">People Playing:</h4>
+                                            <!-- <h4 class="title">People Playing:</h4>
                                             <div class="players-count">
                                                 <ul class="players-list">
                                                     <li>
@@ -83,11 +85,15 @@
                                             </div>
                                             <div class="pp">
                                                 <p>50 People Playing</p>
-                                            </div>
+                                            </div> -->
+                                            <a href="/slotlist/{{e}}">
+                                                <button class="btn btn-primary">Play</button>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-4 col-md-6">
+                                {% endfor %}
+                                <!-- <div class="col-lg-4 col-md-6">
                                     <div class="single-activities">
                                         <div class="top-area">
                                             <div class="left">
@@ -180,7 +186,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
+                                <!-- bamrEND -->
                             </div>
                         </div>
                     </div>
@@ -190,7 +197,7 @@
         
     </section>
     <!-- Play Games Area End -->
-<section class="play-games">
+<!-- <section class="play-games">
 <br>
 <br>
 <br>
@@ -528,8 +535,9 @@
 <br>
 <br>
 
-</section>
-<section class="play-games">
+</section> -->
+<!--  -->
+<!-- <section class="play-games">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -693,8 +701,9 @@
 <br>
 <br>
 
-</section>
-<section class="play-games">
+</section> -->
+
+<!-- <section class="play-games">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -850,6 +859,6 @@
         </div>
         
     </section>
- 
+  -->
 
 {% endblock %}

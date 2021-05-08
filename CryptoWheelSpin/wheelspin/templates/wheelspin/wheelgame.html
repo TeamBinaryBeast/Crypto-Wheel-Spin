@@ -43,7 +43,12 @@
     <script type="text/javascript" src="{% static 'wheelspin/game/js/main.js' %}"></script>
     <script>
         (function(){
-            startSpin() 
+            startSpin();
+            console.log("started")
+            setTimeout(
+            function() {
+                location.href = "/gameresults";
+            }, 15000);
         })();
     </script>
 {% endblock %}

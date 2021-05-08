@@ -66,8 +66,9 @@
                                                                     <td>
                                                                         <img src="{% static 'wheelspin/assets/images/icon1.png' %}" alt=""> {{slot.bet}}$
                                                                     </td>
-                                                                    <td>
-                                                                        {{ slot.bet|mul:slot.capacity }}
+                                                                    <td>{% with answer=slot.bet|mul:slot.capacity|mul:.1 %}
+                                                                        {{slot.bet|mul:slot.capacity|sub:answer}}
+                                                                        {% endwith %}
                                                                     </td>
                                                                     <td>
                                                                         {{slot.capacity}}

@@ -42,9 +42,16 @@ def tournaments(request, *args, **kwargs):
 def game(request, *args, **kwargs):
     return render(request, 'wheelspin/wheelgame.html')
 def slots(request, *args, **kwargs):
-    return render(request, 'wheelspin/slots.html')
-def slotlist(request, *args, **kwargs):
     slots = Slots.objects.all()
+    lof = []
+    for slot in slots:
+        if slot.bet not in lof:
+            lof.append(slot.bet)
+    return render(request, 'wheelspin/slots.html',{
+        'lof':lof
+    })
+def slotlist(request,bet, *args, **kwargs):
+    slots = Slots.objects.filter(bet=int(bet))
     return render(request, 'wheelspin/slotlist.html',{
         "slots":slots
     })
@@ -55,7 +62,15 @@ def transactions(request, *args, **kwargs):
 def exchange(request, *args, **kwargs):
     return render(request, 'wheelspin/exchange.html')
 def inplay(request, *args, **kwargs):
-    return render(request, 'wheelspin/inplay.html')
+    user_obj = User.objects.get(id=request.user.id)
+    rooms = Rooms.objects.filter(users_m=user_obj)
+    running = []
+    for room in rooms:
+        if room.status == "RUNNING":
+            running.append(room)
+    return render(request, 'wheelspin/inplay.html',{
+        'rooms':running
+    })
 def prejoin(request, *args, **kwargs):
     return render(request, 'wheelspin/prejoin.html')
 
@@ -111,6 +126,7 @@ def room(request, room_name, *args, **kwargs):
             'room_name': room_name,
             'activeCouter' : activeCouter,
             'total' : exist.total,
+            'bet' : exist.bet
         })
     else:
         return ERROR
@@ -193,6 +209,20 @@ def addMoneyToWinner(room,username):
 def roomGEN(size=30, chars=string.ascii_uppercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
 
+@login_required
+def leave_room(request,room_name):
+    exist =  Rooms.objects.get(room_name=room_name,status = "RUNNING")
+    if not exist:
+        return ERROR
+    userValid = User.objects.get(id=request.user.id)
+    isValid = [user for user in exist.users_m.all() if user.username == userValid.username]
+    activeCouter = sum([1 for user in exist.users_m.all()])
+    if isValid:
+        exist.users_m.remove(userValid)
+        exist.save()
+        return render(request,'wheelspin/index.html')
+    else:
+        return ERROR
 
 
 @login_required

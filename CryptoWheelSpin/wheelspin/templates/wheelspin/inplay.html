@@ -61,19 +61,21 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                {% for slot in slots %}
+                                                                {% for room in rooms %}
                                                                 <tr>
                                                                     <td>
-                                                                        <img src="{% static 'wheelspin/assets/images/icon1.png' %}" alt=""> {{slot.bet}}$
+                                                                        <img src="{% static 'wheelspin/assets/images/icon1.png' %}" alt=""> {{room.bet}}$
                                                                     </td>
                                                                     <td>
-                                                                        {{ slot.bet|mul:slot.capacity }}
+                                                                        {% with answer=room.bet|mul:room.total|mul:.1 %}
+                                                                        {{room.bet|mul:room.total|sub:answer}}
+                                                                        {% endwith %}
                                                                     </td>
                                                                     <td>
-                                                                        {{slot.capacity}}
+                                                                        {{room.total}}
                                                                     </td>
                                                                     <td>
-                                                                        <a href="/games/reqForROOM/{{slot.bet}}/{{slot.capacity}}">
+                                                                        <a href="/games/reqForROOM/{{room.bet}}/{{room.total}}">
                                                                             <button style="background-color: #f0ad4e; color: black; padding: 5px 40px; border-radius: 14px; outline: none; border: none;">Return</button>
                                                                         </a>
                                                                     </td>

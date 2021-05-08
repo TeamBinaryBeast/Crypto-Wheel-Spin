@@ -39,14 +39,16 @@ urlpatterns = [
     path('tournaments/', tournaments, name='tournaments'),
     path('game/', game, name='game'),
     path('slots/', slots, name='slots'),
-    path('slotlist/', slotlist, name='slotlist'),
+    path('slotlist/<str:bet>/', slotlist, name='slotlist'),
     path('profile/', profile, name="profile"),
     path('gameresults/', gameresults, name="gameresults"),
     path('transactions/', transactions, name="transactions"),
     path('exchange/', exchange, name="exchange"),
     path('inplay/', inplay, name="inplay"),
     path('prejoin/', prejoin, name="prejoin"),
+    path('leave/<str:room_name>', leave_room, name="leave_room"),
     path('games/', include('wheelspin.urls')),
+
 ]
 
 urlpatterns += staticfiles_urlpatterns()

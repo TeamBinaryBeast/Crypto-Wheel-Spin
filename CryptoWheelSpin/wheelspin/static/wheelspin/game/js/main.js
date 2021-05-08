@@ -153,8 +153,8 @@
                     <div style="background:black;display:flex;justify-content:center;">
                         <div>
                             <h1>The Winner is ${indicatedSegment.text}</h1>
-                            <a style="display:flex;justify-content:center;" href="/slotlist">
-                                <button class="btn btn-primary my-4">Play Again</button>
+                            <a style="display:flex;justify-content:center;">
+                                <button class="btn btn-primary my-4">Please Wait Redirecting</button>
                             </a>
                         </div>
                     </div>
