@@ -200,7 +200,7 @@ def addMoneyToWinner(room,username):
     couter = sum([1 for user in room.users_m.all()])
     user = User.objects.get(username=username)
     addmoney = Credits.objects.get(user_f=user.id)
-    addmoney.amount = addmoney.amount + ((room.bet)*couter)*.9
+    addmoney.amount = addmoney.amount + ((room.bet)*room.total)*.9 + room.bet
     addmoney.save()
     for user in room.users_m.all():
         gTrans = GameDetails(
@@ -208,7 +208,7 @@ def addMoneyToWinner(room,username):
             slot=room.bet,
             capcity=room.total,
             result="WON" if room.winner==user.username else "LOST",
-            charge=(room.bet)*.1
+            charge=((room.bet)*room.total)*.9 if room.winner==user.username else (-room.bet)
         )
         gTrans.save()
 
