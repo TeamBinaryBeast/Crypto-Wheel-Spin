@@ -132,6 +132,7 @@ def reqForROOM(request,bet,total):
             return redirect('wheelspin:room',room_name = room.room_name)
         if active_users < room.total:
             room.users_m.add(me)
+            cutMONEYCOMPANYV2(room,me)
             return redirect('wheelspin:room',room_name = room.room_name)
         else:
             return ERROR
@@ -145,6 +146,7 @@ def reqForROOM(request,bet,total):
         )
         createRoom.save()
         createRoom.users_m.add(me)
+        cutMONEYCOMPANYV2(createRoom,me)
         return redirect('wheelspin:room',room_name = createRoom.room_name)
 
 @login_required
@@ -175,7 +177,7 @@ def wheelgame(request,room_name, *args, **kwargs):
     isValid = [user for user in exist.users_m.all() if user.username == userValid.username]
     activeCouter = sum([1 for user in exist.users_m.all()])
     if exist.status == "RUNNING" and exist.total == activeCouter and isValid:        
-        cutMONEYCOMPANY(exist)
+        # old cutMoney
         exist.status = "FINISHED"
         deg = random.randint(1,359)
         per = 360/(exist.total)
@@ -223,6 +225,10 @@ def cutMONEYCOMPANY(room):
         cutMoney.amount = cutMoney.amount - (room.bet*.1)
         cutMoney.save()
 
+def cutMONEYCOMPANYV2(room,user):
+    cutMoney = Credits.objects.get(user_f=user.id)
+    cutMoney.amount = cutMoney.amount - (room.bet)
+    cutMoney.save()
 
 def addMoneyToWinner(room,username):
     couter = sum([1 for user in room.users_m.all()])
@@ -235,7 +241,7 @@ def addMoneyToWinner(room,username):
             username=user,
             slot=room.bet,
             capcity=room.total,
-            result="WIN" if room.winner==user.username else "LOSS",
+            result="WON" if room.winner==user.username else "LOST",
             charge=(room.bet)*.1
         )
         gTrans.save()
@@ -253,11 +259,16 @@ def leave_room(request,room_name):
     activeCouter = sum([1 for user in exist.users_m.all()])
     if isValid:
         exist.users_m.remove(userValid)
+        cutReturnMONEYCOMPANYV2(exist,userValid)
         exist.save()
         return render(request,'wheelspin/index.html')
     else:
         return ERROR
 
+def cutReturnMONEYCOMPANYV2(room,user):
+    cutMoney = Credits.objects.get(user_f=user.id)
+    cutMoney.amount = cutMoney.amount + (room.bet)
+    cutMoney.save()
 
 @login_required
 def profile(request):
