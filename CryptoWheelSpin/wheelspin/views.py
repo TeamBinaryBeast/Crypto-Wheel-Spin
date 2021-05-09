@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import JsonResponse
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from .models import Credits,Rooms,BalanceDetails,Slots,GameDetails
+from .models import *
 import random,math,string
 
 ERROR = JsonResponse({
@@ -56,7 +56,41 @@ def slotlist(request,bet, *args, **kwargs):
         "slots":slots
     })
 def gameresults(request, *args, **kwargs):
-    return render(request, 'wheelspin/gameresults.html')
+    username = request.user.id
+    results = GameDetails.objects.filter(username=username).order_by('-id')[:10]
+    context = {
+        "results": results,
+        "nextid": 10,
+        "preid" : -10
+    }
+    return render(request, 'wheelspin/gameresults.html', context)
+
+def nextGresult(request, id):
+
+    id = int(id)
+    username = request.user.id
+    results = GameDetails.objects.filter(username=username).order_by('-id')[id:id+10]
+    print(results)
+    context = {
+        "results": results,
+        "nextid": id + 10,
+        "preid": id - 10
+    }
+    return render(request, 'wheelspin/gameresults.html', context)
+
+def preGresult(request, id):
+    id = int(id)
+    username = request.user.id
+    results = GameDetails.objects.filter(username=username).order_by('-id')[id:id+10]
+    print(results)
+    context = {
+        "results": results,
+        "nextid": id + 10,
+        "preid": id - 10
+    }
+    return render(request, 'wheelspin/gameresults.html', context)
+
+
 def transactions(request, *args, **kwargs):
     return render(request, 'wheelspin/transactions.html')
 def exchange(request, *args, **kwargs):

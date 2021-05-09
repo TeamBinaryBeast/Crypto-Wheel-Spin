@@ -24,7 +24,7 @@
                             <span><i class="fas fa-chevron-right"></i> </span>
                         </li>
                         <li>
-                            <a href="/slotlist">Slotlist</a>
+                            <a href="#">Slotlist</a>
                         </li>
                     </ul>
                 </div>
@@ -55,8 +55,8 @@
                                                             <thead>
                                                                 <tr>
                                                                     <th scope="col">Entry Fee</th>
-                                                                    <th scope="col">Win Bonus</th>
-                                                                    <th scope="col">Slots</th>
+                                                                    <th scope="col" style="text-align: center;">Win Bonus</th>
+                                                                    <th scope="col" style="text-align:center;">User Capacity</th>
                                                                     <th scope="col"></th>
                                                                 </tr>
                                                             </thead>
@@ -66,11 +66,11 @@
                                                                     <td>
                                                                         <img src="{% static 'wheelspin/assets/images/icon1.png' %}" alt=""> {{slot.bet}}$
                                                                     </td>
-                                                                    <td>{% with answer=slot.bet|mul:slot.capacity|mul:.1 %}
+                                                                    <td style="color:greenyellow; text-align:center;">{% with answer=slot.bet|mul:slot.capacity|mul:.1 %}
                                                                         {{slot.bet|mul:slot.capacity|sub:answer}}
-                                                                        {% endwith %}
+                                                                        {% endwith %}$
                                                                     </td>
-                                                                    <td>
+                                                                    <td style="color:yellow; text-align:center">
                                                                         {{slot.capacity}}
                                                                     </td>
                                                                     <td>
