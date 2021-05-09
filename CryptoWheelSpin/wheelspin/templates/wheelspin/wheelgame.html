@@ -11,7 +11,7 @@
     {{ room_name|json_script:"room-name" }}
     
     <section class="four-zero-four" style="display: flex;justify-content: center;">
-    <div style="margin-top:25vh ">
+    <div style="margin-top:30vh">
             
             <table cellpadding="0" cellspacing="0" border="0">
             <tr>
@@ -19,7 +19,9 @@
                     <div class="power_controls">
                         <br />
                         <br />
-                       
+                       <div style="display: flex;justify-content:center ">
+                            <h1 id="progressBar"></h1>
+                       </div>
                         <!-- <img src="https://img.icons8.com/cute-clipart/64/000000/start.png" id="spin_button"  alt="Spin" onClick="startSpin()" /> -->
                         <img src id="spin_button" hidden alt="Spin" onClick="startSpin()" />
                         <br /><br />
@@ -43,12 +45,25 @@
     <script type="text/javascript" src="{% static 'wheelspin/game/js/main.js' %}"></script>
     <script>
         (function(){
-            startSpin();
+            var timeleft = 10;
+            var downloadTimer = setInterval(function(){
+            if(timeleft <= 0){
+                clearInterval(downloadTimer);
+            }
+            document.getElementById("progressBar").innerHTML = 10 - timeleft;
+            timeleft -= 1;
+            }, 1000);
+            
+            setTimeout(
+            function() {
+                document.getElementById("progressBar").remove();
+                startSpin();
+            }, 11000);
             console.log("started")
             setTimeout(
             function() {
                 location.href = "/gameresults";
-            }, 20000);
+            }, 38000);
         })();
     </script>
 {% endblock %}

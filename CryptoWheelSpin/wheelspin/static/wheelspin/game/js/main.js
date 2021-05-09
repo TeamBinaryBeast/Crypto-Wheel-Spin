@@ -148,17 +148,22 @@
                     // alert('Oh no, you have gone BANKRUPT!');
                 } else {
                     // alert("You have won " + indicatedSegment.text);
-                    let fzf = document.querySelector('.four-zero-four')
-                    fzf.innerHTML = `
-                    <div style="background:black;display:flex;justify-content:center;">
-                        <div>
-                            <h1>The Winner is ${indicatedSegment.text}</h1>
-                            <a style="display:flex;justify-content:center;">
-                                <button class="btn btn-primary my-4">Please Wait Redirecting</button>
-                            </a>
-                        </div>
-                    </div>
-                    `
+                    setTimeout(
+                        function() {
+                            let fzf = document.querySelector('.four-zero-four')
+                            fzf.innerHTML = `
+                            <div style="background:black;display:flex;justify-content:center;">
+                                <div>
+                                    <h1>The Winner is ${indicatedSegment.text}</h1>
+                                    <a style="display:flex;justify-content:center;">
+                                        <button class="btn btn-primary my-4">Please Wait Redirecting</button>
+                                    </a>
+                                </div>
+                            </div>
+                            `
+                        }, 30000);
+            
+                    
                 }
             }
 
