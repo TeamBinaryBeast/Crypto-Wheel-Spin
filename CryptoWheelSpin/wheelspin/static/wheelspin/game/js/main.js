@@ -244,28 +244,60 @@
             // -------------------------------------------------------
             function alertPrize(indicatedSegment)
             {
-                // Just alert to the user what happened.
-                // In a real project probably want to do something more interesting than this with the result.
-                if (indicatedSegment.text == 'LOOSE TURN') {
+                // console.log("SJKDHJSAHGDJKSAHJDKHSAJKDHSAJKDHJSAKHDJKSAHDJSAH")
+                // // Just alert to the user what happened.
+                // // In a real project probably want to do something more interesting than this with the result.
+                // if (indicatedSegment.text == 'LOOSE TURN') {
+                //     console.log("CCCCC1")
+                //     setTimeout(
+                //         function() {
+                //             let fzf = document.querySelector('#rme')
+                //             fzf.innerHTML = `
+                //             <div style="background:black;display:flex;justify-content:center;">
+                //                 <div>
+                //                     <h1>The Winner is ${indicatedSegment.text}</h1>
+                //                     <a style="display:flex;justify-content:center;">
+                //                         <button class="btn btn-primary my-4">Please Wait Redirecting</button>
+                //                     </a>
+                //                 </div>
+                //             </div>
+                //             `
+                //         }, 1000);
                     // alert('Sorry but you loose a turn.');
                 } else if (indicatedSegment.text == 'BANKRUPT') {
+                    // console.log("CCCCC2")
+                    // setTimeout(
+                    //     function() {
+                    //         let fzf = document.querySelector('#rme')
+                    //         fzf.innerHTML = `
+                    //         <div style="background:black;display:flex;justify-content:center;">
+                    //             <div>
+                    //                 <h1>The Winner is ${indicatedSegment.text}</h1>
+                    //                 <a style="display:flex;justify-content:center;">
+                    //                     <button class="btn btn-primary my-4">Please Wait Redirecting</button>
+                    //                 </a>
+                    //             </div>
+                    //         </div>
+                    //         `
+                    //     }, 1000);
                     // alert('Oh no, you have gone BANKRUPT!');
                 } else {
-                    // alert("You have won " + indicatedSegment.text);
-                    setTimeout(
-                        function() {
-                            let fzf = document.querySelector('.four-zero-four')
-                            fzf.innerHTML = `
-                            <div style="background:black;display:flex;justify-content:center;">
-                                <div>
-                                    <h1>The Winner is ${indicatedSegment.text}</h1>
-                                    <a style="display:flex;justify-content:center;">
-                                        <button class="btn btn-primary my-4">Please Wait Redirecting</button>
-                                    </a>
-                                </div>
-                            </div>
-                            `
-                        }, 30000);
+                    // console.log("CCCCC3")
+                    // // alert("You have won " + indicatedSegment.text);
+                    // setTimeout(
+                    //     function() {
+                    //         let fzf = document.querySelector('#rme')
+                    //         fzf.innerHTML = `
+                    //         <div style="background:black;display:flex;justify-content:center;">
+                    //             <div>
+                    //                 <h1>The Winner is ${indicatedSegment.text}</h1>
+                    //                 <a style="display:flex;justify-content:center;">
+                    //                     <button class="btn btn-primary my-4">Please Wait Redirecting</button>
+                    //                 </a>
+                    //             </div>
+                    //         </div>
+                    //         `
+                    //     }, 1000);
             
                     
                 }

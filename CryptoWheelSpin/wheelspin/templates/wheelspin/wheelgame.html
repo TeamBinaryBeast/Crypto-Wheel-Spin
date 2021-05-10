@@ -10,7 +10,7 @@
 
     {{ room_name|json_script:"room-name" }}
     
-    <section class="four-zero-four" style="display: flex;justify-content: center;">
+    <section class="four-zero-four" id="rme" style="display: flex;justify-content: center;">
     <div style="margin-top:30vh">
             
             <table cellpadding="0" cellspacing="0" border="0">
@@ -50,16 +50,30 @@
             if(timeleft <= 0){
                 clearInterval(downloadTimer);
             }
-            document.getElementById("progressBar").innerHTML = 10 - timeleft;
+            document.getElementById("progressBar").innerHTML = timeleft;
             timeleft -= 1;
             }, 1000);
             
             setTimeout(
             function() {
-                document.getElementById("progressBar").remove();
+                document.getElementById("progressBar").style.display="none";
                 startSpin();
-            }, 11000);
+            }, 12000);
             console.log("started")
+            setTimeout(
+                        function() {
+                            let fzf = document.querySelector('#rme')
+                            fzf.innerHTML = `
+                            <div style="background:black;display:flex;justify-content:center;">
+                                <div>
+                                    <h1>The Winner is {{winner}}</h1>
+                                    <a style="display:flex;justify-content:center;">
+                                        <button class="btn btn-primary my-4">Please Wait Redirecting</button>
+                                    </a>
+                                </div>
+                            </div>
+                            `
+                        }, 27000);
             setTimeout(
             function() {
                 location.href = "/gameresults";
