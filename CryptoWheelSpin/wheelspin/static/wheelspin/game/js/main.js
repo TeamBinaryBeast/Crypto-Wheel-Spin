@@ -247,7 +247,7 @@
                 // console.log("SJKDHJSAHGDJKSAHJDKHSAJKDHSAJKDHJSAKHDJKSAHDJSAH")
                 // // Just alert to the user what happened.
                 // // In a real project probably want to do something more interesting than this with the result.
-                // if (indicatedSegment.text == 'LOOSE TURN') {
+                if (indicatedSegment.text == 'LOOSE TURN') {
                 //     console.log("CCCCC1")
                 //     setTimeout(
                 //         function() {
@@ -264,6 +264,7 @@
                 //             `
                 //         }, 1000);
                     // alert('Sorry but you loose a turn.');
+                    
                 } else if (indicatedSegment.text == 'BANKRUPT') {
                     // console.log("CCCCC2")
                     // setTimeout(
