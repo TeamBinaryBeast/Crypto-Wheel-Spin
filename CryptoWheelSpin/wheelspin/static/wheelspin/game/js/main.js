@@ -105,13 +105,68 @@
                 "rgb(80, 152, 185)"
               ]
             let segments = []
-            userlist.map((e,key)=>{
-                // var randomColor = Math.floor(Math.random()*16777215).toString(16);
-                console.log(e,key)
-                console.log(colorsXXX[key])
-                obj = {'fillStyle' : colorsXXX[key], 'text' : e}
-                segments.push(obj)
-            })
+            if(userlist.length == 2){
+                for(i = 0; i < 5; i++){
+
+                    userlist.map((e,key)=>{
+                        // var randomColor = Math.floor(Math.random()*16777215).toString(16);
+                        console.log(e,key)
+                        console.log(colorsXXX[key])
+                        obj = {'fillStyle' : colorsXXX[key], 'text' : e}
+                        segments.push(obj)
+                    })
+
+                }
+            } else if (userlist.length == 3){
+                for(i = 0; i < 4; i++){
+
+                    userlist.map((e,key)=>{
+                        // var randomColor = Math.floor(Math.random()*16777215).toString(16);
+                        console.log(e,key)
+                        console.log(colorsXXX[key])
+                        obj = {'fillStyle' : colorsXXX[key], 'text' : e}
+                        segments.push(obj)
+                    })
+
+                }
+            } else if (userlist.length == 4){
+                for(i = 0; i < 3; i++){
+
+                    userlist.map((e,key)=>{
+                        // var randomColor = Math.floor(Math.random()*16777215).toString(16);
+                        console.log(e,key)
+                        console.log(colorsXXX[key])
+                        obj = {'fillStyle' : colorsXXX[key], 'text' : e}
+                        segments.push(obj)
+                    })
+
+                }
+            } else if (userlist.length > 4 && userlist.length < 10){
+                for(i = 0; i < 2; i++){
+
+                    userlist.map((e,key)=>{
+                        // var randomColor = Math.floor(Math.random()*16777215).toString(16);
+                        console.log(e,key)
+                        console.log(colorsXXX[key])
+                        obj = {'fillStyle' : colorsXXX[key], 'text' : e}
+                        segments.push(obj)
+                    })
+
+                }
+            } else {
+                
+
+                userlist.map((e,key)=>{
+                    // var randomColor = Math.floor(Math.random()*16777215).toString(16);
+                    console.log(e,key)
+                    console.log(colorsXXX[key])
+                    obj = {'fillStyle' : colorsXXX[key], 'text' : e}
+                    segments.push(obj)
+                })
+
+                
+            }
+            
             
             // Create new wheel object specifying the parameters at creation time.
             let theWheel = new Winwheel({

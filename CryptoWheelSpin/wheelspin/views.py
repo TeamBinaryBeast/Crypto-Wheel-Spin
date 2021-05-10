@@ -10,7 +10,12 @@ ERROR = JsonResponse({
 })
 
 def home(request, *args, **kwargs):
-    return render(request, 'wheelspin/index.html')
+    result = "WON"
+    results = GameDetails.objects.filter(result=result).order_by('-id')[:10]
+    context = {
+        "results": results,
+    }
+    return render(request, 'wheelspin/index.html', context)
 def err404(request, *args, **kwargs):
     return render(request, 'wheelspin/404.html')
 def about(request, *args, **kwargs):
@@ -70,7 +75,6 @@ def nextGresult(request, id):
     id = int(id)
     username = request.user.id
     results = GameDetails.objects.filter(username=username).order_by('-id')[id:id+10]
-    print(results)
     context = {
         "results": results,
         "nextid": id + 10,
@@ -82,7 +86,6 @@ def preGresult(request, id):
     id = int(id)
     username = request.user.id
     results = GameDetails.objects.filter(username=username).order_by('-id')[id:id+10]
-    print(results)
     context = {
         "results": results,
         "nextid": id + 10,
@@ -180,8 +183,21 @@ def wheelgame(request,room_name, *args, **kwargs):
         # old cutMoney
         exist.status = "FINISHED"
         deg = random.randint(1,359)
-        per = 360/(exist.total)
-        win_index = (exist.total-1) - ((math.ceil(deg/per)) - 1)
+        if exist.total == 2:
+            per = 360/(exist.total * 5)
+            win_index = (exist.total-1) - (((math.ceil(deg/per)) - 1) % 2)
+        elif exist.total == 3:
+            per = 360/(exist.total * 4)
+            win_index = (exist.total-1) - (((math.ceil(deg/per)) - 1) % 3)
+        elif exist.total == 4:
+            per = 360/(exist.total * 3)
+            win_index = (exist.total-1) - (((math.ceil(deg/per)) - 1) % 4)
+        elif exist.total > 4 and exist.total < 10:
+            per = 360/(exist.total * 2)
+            win_index = (exist.total-1) - (((math.ceil(deg/per)) - 1) % exist.total)
+        else:
+            per = 360/(exist.total)
+            win_index = (exist.total-1) - ((math.ceil(deg/per)) - 1)
         allParticipents = [user for user in exist.users_m.all()]
         exist.winner = allParticipents[win_index].username
         exist.deg = deg
