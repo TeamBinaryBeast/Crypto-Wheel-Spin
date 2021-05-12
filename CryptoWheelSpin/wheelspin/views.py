@@ -237,8 +237,9 @@ def wheelgame(request,room_name, *args, **kwargs):
 
 def cutMONEYCOMPANY(room):
     for user in room.users_m.all():
+        slot = Slots.objects.get(bet=room.bet,capacity=room.total)
         cutMoney = Credits.objects.get(user_f=user.id)
-        cutMoney.amount = cutMoney.amount - (room.bet*.1)
+        cutMoney.amount = cutMoney.amount - (room.bet*(slot.charge/100)) #THA
         cutMoney.save()
 
 def cutMONEYCOMPANYV2(room,user):
@@ -248,9 +249,10 @@ def cutMONEYCOMPANYV2(room,user):
 
 def addMoneyToWinner(room,username):
     couter = sum([1 for user in room.users_m.all()])
+    slot = Slots.objects.get(bet=room.bet,capacity=room.total)
     user = User.objects.get(username=username)
     addmoney = Credits.objects.get(user_f=user.id)
-    addmoney.amount = addmoney.amount + ((room.bet)*room.total)*.9 + room.bet
+    addmoney.amount = addmoney.amount + ((room.bet)*room.total)*(1-(slot.charge/100)) + room.bet #THA
     addmoney.save()
     for user in room.users_m.all():
         gTrans = GameDetails(
@@ -258,7 +260,7 @@ def addMoneyToWinner(room,username):
             slot=room.bet,
             capcity=room.total,
             result="WON" if room.winner==user.username else "LOST",
-            charge=((room.bet)*room.total)*.9 if room.winner==user.username else (-room.bet)
+            charge=((room.bet)*room.total)*(1-(slot.charge/100)) if room.winner==user.username else (-room.bet) #THA
         )
         gTrans.save()
 

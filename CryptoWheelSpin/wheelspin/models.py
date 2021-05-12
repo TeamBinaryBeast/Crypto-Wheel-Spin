@@ -66,6 +66,7 @@ class BalanceDetails(models.Model):
 class Slots(models.Model):
     capacity = models.IntegerField()
     bet = models.IntegerField()
+    charge = models.IntegerField(default=10)
     def __str__(self):
         return str("BET:" + str(self.bet) + "->" + "Capacity:"+ str(self.capacity))
     objects = models.Manager()
