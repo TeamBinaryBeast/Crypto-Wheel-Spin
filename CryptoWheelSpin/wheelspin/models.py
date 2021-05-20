@@ -107,4 +107,5 @@ class RefBonusDetails(models.Model):
     def __str__(self):
         date_time_str = str(self.time)
         date_time_obj = maya.parse(date_time_str).datetime()
-        return (self.to_user + " " + str(date_time_obj.date()) + " " + str(date_time_obj.time().strftime("%I:%M %p")) + " " + str(date_time_obj.tzinfo))
+        # return (self.to_user + " " + str(date_time_obj.date()) + " " + str(date_time_obj.time().strftime("%I:%M %p")) + " " + str(date_time_obj.tzinfo))
+        return (str(self.to_user) + " " + str(date_time_obj.date()) + " " + str(date_time_obj.time().strftime("%I:%M %p")) + " " + str(date_time_obj.tzinfo))
