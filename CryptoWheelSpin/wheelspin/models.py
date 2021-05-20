@@ -97,3 +97,14 @@ class RefferUser(models.Model):
 
 class RefBonus(models.Model):
     percent = models.FloatField()
+
+class RefBonusDetails(models.Model):
+    from_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="from_user")
+    to_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="to_user")
+    bonus = models.FloatField()
+    time = time = models.DateTimeField(auto_now_add=True, auto_now=False)
+
+    def __str__(self):
+        date_time_str = str(self.time)
+        date_time_obj = maya.parse(date_time_str).datetime()
+        return (self.to_user + " " + str(date_time_obj.date()) + " " + str(date_time_obj.time().strftime("%I:%M %p")) + " " + str(date_time_obj.tzinfo))

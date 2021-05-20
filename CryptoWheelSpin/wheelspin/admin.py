@@ -10,6 +10,8 @@ admin.site.register(GameDetails)
 admin.site.register(BalanceDetails)
 admin.site.register(RefferUser)
 admin.site.register(RefBonus)
+admin.site.register(RefBonusDetails)
+
 
 
 
