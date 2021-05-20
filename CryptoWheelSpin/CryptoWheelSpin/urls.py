@@ -23,6 +23,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('accounts.urls')),
     path('', home, name='home'),
+    path('<str:ref_code>/', home, name='home'),
     path('404/', err404, name='err404'),
     path('about/', about, name='about'),
     path('affiliate/', affiliate, name='affiliate'),

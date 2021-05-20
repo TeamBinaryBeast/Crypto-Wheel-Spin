@@ -10,42 +10,65 @@ ERROR = JsonResponse({
 })
 
 def home(request, *args, **kwargs):
+    try:
+        code = kwargs.get('ref_code')
+        profile = RefferUser.objects.get(code=code)
+        request.session['ref_profile'] =  profile.id
+    except:
+        pass
+
     result = "WON"
     results = GameDetails.objects.filter(result=result).order_by('-id')[:10]
     context = {
         "results": results,
     }
     return render(request, 'wheelspin/index.html', context)
+
 def err404(request, *args, **kwargs):
     return render(request, 'wheelspin/404.html')
+
 def about(request, *args, **kwargs):
     return render(request, 'wheelspin/about.html')
+
 def affiliate(request, *args, **kwargs):
     return render(request, 'wheelspin/affiliate.html')
+
 def awards(request, *args, **kwargs):
     return render(request, 'wheelspin/awards.html')
+
 def bonus(request, *args, **kwargs):
     return render(request, 'wheelspin/bonus.html')
+
 def cart(request, *args, **kwargs):
     return render(request, 'wheelspin/cart.html')
+
 def contact(request, *args, **kwargs):
     return render(request, 'wheelspin/contact.html')
+
 def faq(request, *args, **kwargs):
     return render(request, 'wheelspin/faq.html')
+
 def howItWork(request, *args, **kwargs):
     return render(request, 'wheelspin/how-it-work.html')
+
 def lottery(request, *args, **kwargs):
     return render(request, 'wheelspin/lottery.html')
+
 def play(request, *args, **kwargs):
     return render(request, 'wheelspin/play.html')
+
 def termsConditionsDetails(request, *args, **kwargs):
     return render(request, 'wheelspin/terms-conditions-details.html')
+
 def termsConditions(request, *args, **kwargs):
     return render(request, 'wheelspin/terms-conditions.html')
+
 def tournaments(request, *args, **kwargs):
     return render(request, 'wheelspin/tournaments.html')
+
 def game(request, *args, **kwargs):
     return render(request, 'wheelspin/wheelgame.html')
+
 def slots(request, *args, **kwargs):
     slots = Slots.objects.all()
     lof = []
@@ -55,11 +78,13 @@ def slots(request, *args, **kwargs):
     return render(request, 'wheelspin/slots.html',{
         'lof':lof
     })
+
 def slotlist(request,bet, *args, **kwargs):
     slots = Slots.objects.filter(bet=int(bet))
     return render(request, 'wheelspin/slotlist.html',{
         "slots":slots
     })
+
 def gameresults(request, *args, **kwargs):
     username = request.user.id
     results = GameDetails.objects.filter(username=username).order_by('-id')[:10]
@@ -291,3 +316,4 @@ def cutReturnMONEYCOMPANYV2(room,user):
 @login_required
 def profile(request):
     return render(request,'wheelspin/profile.html')
+

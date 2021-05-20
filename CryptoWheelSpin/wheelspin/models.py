@@ -1,8 +1,10 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, AbstractUser
 import datetime
 from dateutil.parser import parse
 import maya
+import uuid
+from .utils import generate_ref_code
 
 # Create your models here.
 class Credits(models.Model):
@@ -73,3 +75,25 @@ class Slots(models.Model):
     class meta:
         managed = True
         db_table = 'Slots'
+
+
+class RefferUser(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    code = models.CharField(max_length=12, blank=True)
+    ref_by = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True, related_name="ref_by")
+
+    def __str__(self):
+        return f"{self.user.username} - {self.code}"
+
+    def get_recommend_profiles(self):
+        pass
+
+    def save(self, *args, **kwargs):
+        if self.code == "":
+            code = generate_ref_code()
+            self.code = code
+
+        super().save(*args, **kwargs)
+
+class RefBonus(models.Model):
+    percent = models.FloatField()

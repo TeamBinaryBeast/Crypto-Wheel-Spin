@@ -8,6 +8,8 @@ admin.site.register(Slots)
 admin.site.register(Credits)
 admin.site.register(GameDetails)
 admin.site.register(BalanceDetails)
+admin.site.register(RefferUser)
+admin.site.register(RefBonus)
 
 
 
