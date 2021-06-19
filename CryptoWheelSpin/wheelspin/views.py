@@ -315,5 +315,10 @@ def cutReturnMONEYCOMPANYV2(room,user):
 
 @login_required
 def profile(request):
-    return render(request,'wheelspin/profile.html')
+    username = request.user.id
+    results = GameDetails.objects.filter(username=username).order_by('-id')[:10]
+    context = {
+        "results": results,
+    }
+    return render(request,'wheelspin/profile.html', context)
 

@@ -10,8 +10,8 @@
 
     {{ room_name|json_script:"room-name" }}
     
-    <section class="four-zero-four" id="rme" style="display: flex;justify-content: center;">
-    <div style="margin-top:30vh">
+    <section class="four-zero-four" id="rme" style="width: 1920px; height: 1080px; display: flex;justify-content: center;">
+    <div style="margin-top:30vh; background-image: url('{% static 'wheelspin/game/media/final.jpg' %}'">
             
             <table cellpadding="0" cellspacing="0" border="0">
             <tr>
@@ -28,7 +28,7 @@
                         &nbsp;&nbsp;
                     </div>
                 </td>
-                <td width="438" height="582" class="the_wheel" align="center" valign="center">
+                <td width="550" height="700" class="the_wheel" align="center" valign="center">
                     <!-- <canvas id="canvas" width="434" height="434" onclick="startSpin()"> -->
                     <canvas id="canvas" width="434" height="434">
                         <p style="{color: white}" align="center">Sorry, your browser doesn't support canvas. Please try another.</p>

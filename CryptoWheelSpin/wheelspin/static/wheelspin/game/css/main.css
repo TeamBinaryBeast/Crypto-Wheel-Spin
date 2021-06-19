@@ -20,7 +20,10 @@ td.the_wheel
 {
     background-image: url(../media/wheel_back.png);
     background-position: center;
-    background-repeat: none;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 700px;
+    width: 550px;
 }
 
 /* Do some css reset on selected elements */

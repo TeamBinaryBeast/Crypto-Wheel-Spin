@@ -16,10 +16,10 @@
                                 {{request.user.username}}
                             </h1>
                             <p class="text">
-                                Play, Invest,Exchange and Join the Contest with high rewards at Dooplo!
+                                Create Account, Deposit, Play and Win with high Rewards!
                             </p>
                             <div class="links">
-                                <a href="#" class="mybtn1 link1">Get Started Now!</a>
+                                <a href="/slots/" class="mybtn1 link1">Get Started Now!</a>
                             </div>
                         </div>
                     </div>
@@ -151,7 +151,7 @@
                                 <a class="nav-link active" id="pills-all-bets-tab" data-toggle="pill" href="#pills-all-bets" role="tab" aria-controls="pills-all-bets" aria-selected="true">Games</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="pills-my-bets-tab" data-toggle="pill" href="#pills-my-bets" role="tab" aria-controls="pills-my-bets" aria-selected="false">Transactions</a>
+                                <a class="nav-link" id="pills-my-bets-tab" data-toggle="pill" href="#pills-my-bets" role="tab" aria-controls="pills-my-bets" aria-selected="false">Reffer</a>
                             </li>
                         </ul>
                     </div>
@@ -164,28 +164,36 @@
                                             <th scope="col">Slot</th>
                                             <th scope="col">Capacity</th>
                                             <th scope="col">Result</th>
-                                            <th scope="col">Charge</th>
-                                            <th scope="col">Balance</th>
+                                            <th scope="col">Amount</th>
                                             <th scope="col">Time</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        {% for result in results%}
                                         <tr>
                                             <td>
-                                                <img src="{% static 'wheelspin/assets/images/people/p1.png' %}" alt=""> Tom Bass
+                                                
+                                                <img src="{% static 'wheelspin/assets/images/icon1.png' %}" alt=""> {{result.slot}}
                                             </td>
-                                            <td>
-                                                b799b8724b
+                                            <td style="color: yellow;">
+                                                {{result.capcity}}
                                             </td>
-                                            <td>
-                                                <img src="{% static 'wheelspin/assets/images/icon1.png' %}" alt=""> 0.00000051
+                                            {% if result.charge < 0%}
+                                            <td style="color: red;">
+                                                {{result.result}}
                                             </td>
-                                            <td>70%</td>
-                                            <td>Dice</td>
-                                            <td>
-                                                <img src="{% static 'wheelspin/assets/images/icon1.png' %}" alt=""> 0.00000051
+                                            
+                                            <td style="color: red;">{{result.charge}}</td>
+                                            {% else %}
+                                            <td style="color: greenyellow;">
+                                                {{result.result}}
                                             </td>
+                                            <td style="color: greenyellow;">{{result.charge}}</td>
+                                            {% endif%}
+                                            <td>{{result.time}}</td>
+                                        
                                         </tr>
+                                        {% endfor %}
                                         <tr>
                                             <td colspan=6 style="text-align:center;">
                                                 <a href="/gameresults" class="mybtn1">See more...</a>

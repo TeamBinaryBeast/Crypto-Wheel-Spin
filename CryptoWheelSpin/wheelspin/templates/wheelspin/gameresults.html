@@ -86,7 +86,7 @@
                                             <th scope="col">Slot</th>
                                             <th scope="col">Capacity</th>
                                             <th scope="col">Result</th>
-                                            <th scope="col">Charge</th>
+                                            <th scope="col">Amount</th>
                                             <th scope="col">Time</th>
                                         </tr>
                                     </thead>
@@ -97,13 +97,21 @@
                                                 
                                                 <img src="{% static 'wheelspin/assets/images/icon1.png' %}" alt=""> {{result.slot}}
                                             </td>
-                                            <td>
+                                            <td style="color: yellow;">
                                                 {{result.capcity}}
                                             </td>
-                                            <td>
+                                            {% if result.charge < 0%}
+                                            <td style="color: red;">
                                                 {{result.result}}
                                             </td>
-                                            <td>{{result.charge}}</td>
+                                            
+                                            <td style="color: red;">{{result.charge}}</td>
+                                            {% else %}
+                                            <td style="color: greenyellow;">
+                                                {{result.result}}
+                                            </td>
+                                            <td style="color: greenyellow;">{{result.charge}}</td>
+                                            {% endif%}
                                             <td>{{result.time}}</td>
                                         
                                         </tr>
