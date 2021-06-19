@@ -279,6 +279,29 @@ def addMoneyToWinner(room,username):
     addmoney = Credits.objects.get(user_f=user.id)
     addmoney.amount = addmoney.amount + ((room.bet)*room.total)*(1-(slot.charge/100)) + room.bet #THA
     addmoney.save()
+    
+    refPer = RefBonus.objects.all()
+    refPer = refPer[0].percent
+    print("\n"*20)
+
+    ifREFBUDDY = RefferUser.objects.get(user = user)
+    print(ifREFBUDDY.ref_by)
+    if (ifREFBUDDY.ref_by):
+        cutDDT = ((room.bet)*room.total)*((slot.charge/100)*(refPer/100))
+        saveME = RefBonusDetails(
+            from_user=user,
+            to_user=ifREFBUDDY.ref_by,
+            bonus=cutDDT
+        )
+        saveME.save()
+
+        cdet = Credits.objects.get(user_f=ifREFBUDDY.ref_by.id)
+        cdet.amount = cdet.amount + cutDDT
+        cdet.save()
+        
+    else:
+        pass
+
     for user in room.users_m.all():
         gTrans = GameDetails(
             username=user,
